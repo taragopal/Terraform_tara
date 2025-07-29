@@ -1,0 +1,236 @@
+====================================================PREDEFINED RESOURCE TYPES==========================================================
+====================================================PREDEFINED RESOURCE TYPES==========================================================
+====================================================PREDEFINED RESOURCE TYPES==========================================================
+====================================================PREDEFINED RESOURCE TYPES==========================================================
+====================================================TRICKS on DECLATRING A RESOURCE BLOCK==============================================
+
+In a resource block itself, you do not specify a "variable type" like string, number, list, or map for the resource's attributes.
+
+Let's look at the example again:
+
+Terraform
+
+resource "aws_subnet" "public" {
+  vpc_id     = "${aws_vpc.tfb.id}"
+  cidr_block = "${var.public_subnet}"
+  tags = {
+    Name = "${var.name}-public "
+  }
+}
+Here's why you don't see explicit type declarations for vpc_id, cidr_block, or tags within this resource block:
+
+Implicit Typing (Defined by the Provider Schema):
+
+When you write resource "aws_subnet" "public" { ... }, Terraform (specifically, the aws provider) already knows what attributes an aws_subnet resource can accept and what type each of those attributes expects.
+
+This schema is hardcoded within the aws provider's source code.
+
+For instance, the aws provider knows that:
+
+vpc_id must be a string.
+
+cidr_block must be a string.
+
+tags must be a map(string).
+
+You don't declare the types because the provider has already declared them. Your job is to provide a value that matches the expected type. If you provide a number for cidr_block, Terraform will throw an error because it expects a string.
+
+Contrast with variable Blocks:
+
+The reason you do specify type = string, type = map(string), etc., in a variable block is because you are declaring your own input variable. You are telling Terraform what kind of input you expect this variable to hold.
+
+Terraform needs this explicit type declaration for variables so it can validate user input before trying to use it in resource arguments.
+
+Example:
+
+Terraform
+
+variable "public_subnet" {
+  description = "The CIDR block for the public subnet."
+  type        = string # Explicitly declaring the type for your variable
+}
+
+variable "tags" {
+  description = "A map of tags for resources."
+  type        = map(string) # Explicitly declaring the type for your variable
+}
+When Terraform then uses "${var.public_subnet}" as the value for cidr_block, it has already verified that var.public_subnet is a string.
+
+HCL's Design Philosophy:
+
+HCL (HashiCorp Configuration Language) is designed to be declarative and relatively concise. Explicitly typing every attribute within every resource block would add a lot of verbosity to the code, especially since the provider already knows these types.
+
+The focus of a resource block is on what to create and how to configure it, using values that are implicitly typed by the provider's schema.
+
+In summary:
+
+variable blocks: You define the type because you're declaring a new input variable and Terraform needs to know how to validate and interpret the input it receives for that variable.
+
+resource blocks (and their attributes): The types are implicitly defined by the provider's schema. Terraform already knows what kind of value each attribute expects, and it will validate your provided values against that pre-defined schema.
+
+This design makes Terraform configurations cleaner and easier to read, as you don't need to redundantly declare types for every attribute. You only declare types for the variables you define to accept user input.
+
+
+====================================================PREDEFINED RESOURCE TYPES==========================================================
+
+aws_subnet or azurerm_subnet are standard, predefined terms. Developers cannot change them.
+
+Here's why:
+
+Provider-Defined Resource Types:
+
+Terraform works with providers. A provider is essentially a plugin that understands how to interact with a specific cloud or service (e.g., AWS, Azure, Google Cloud, Kubernetes, GitHub, etc.).
+
+
+Each provider defines a set of resource types that it can manage. These resource types are fixed and come directly from the provider's code.
+
+For AWS, the resource type to create a subnet is always aws_subnet.
+
+For Azure, the resource type to create a subnet is always azurerm_subnet (where azurerm is the name of the Azure Resource Manager provider for Terraform).
+
+You can find a complete list of supported resource types for a given provider in the Terraform Registry (e.g., AWS Provider Documentation or AzureRM Provider Documentation).
+
+Standardized API Interaction:
+
+These resource type names (aws_subnet, azurerm_vpc, google_compute_instance, etc.) are part of a contract between your Terraform code and the provider.
+
+When Terraform sees resource "aws_subnet", it knows exactly which part of the AWS API to call and what parameters to send to create a subnet. If you could change aws_subnet to something else, Terraform wouldn't know what to do.
+
+Consistency Across Users and Organizations:
+
+This standardization is vital. It means that any developer using the aws provider in Terraform will use aws_subnet to define an AWS subnet, regardless of their company or project. This ensures consistency, makes code shareable, and simplifies collaboration.
+
+What developers can change is the "local name" (or "resource name"):
+
+In the line resource "aws_subnet" "public" {, public is the local name. This is your chosen identifier for that specific instance of an aws_subnet resource within your Terraform configuration.
+
+You could equally write:
+
+Terraform
+
+resource "aws_subnet" "my_first_public_subnet" {
+  vpc_id     = aws_vpc.tfb.id
+  cidr_block = var.public_subnet_cidr_block_1
+  tags = {
+    Name = "${var.project_name}-public-1"
+  }
+}
+
+resource "aws_subnet" "app_private_subnet" {
+  vpc_id     = aws_vpc.tfb.id
+  cidr_block = var.private_subnet_cidr_block_for_app
+  tags = {
+    Name = "${var.project_name}-private-app"
+  }
+}
+Here:
+
+"aws_subnet" remains constant (the resource type).
+
+"my_first_public_subnet" and "app_private_subnet" are the local names chosen by the developer to distinguish these two different aws_subnet resources in their code. These local names are used for referencing these resources later (aws_subnet.my_first_public_subnet.id).
+
+So, to reiterate:
+
+aws_subnet / azurerm_subnet: Standard terms, fixed by the provider. You cannot change these.
+
+"public" (the second string in the resource block): A local name chosen by the developer to identify a specific instance of that resource. This can be changed by the developer, as long as it's unique within its resource type in that module.
+
+
+-----------------------------------------------------------------------------------
+You cannot create multiple local names in a single line like that in Terraform.
+
+The syntax for a resource block is very strict:
+
+Terraform
+
+resource "<RESOURCE_TYPE>" "<LOCAL_NAME>" {
+  # resource configuration attributes
+}
+resource: The keyword.
+
+"<RESOURCE_TYPE>": The predefined, provider-specific type (e.g., "aws_subnet", "azurerm_virtual_network").
+
+"<LOCAL_NAME>": A single, unique identifier that you assign to that specific resource instance within your Terraform configuration.
+
+If you tried to write:
+
+Terraform
+
+resource "aws_subnet" "public1" "public2" "public3" {
+  # ...
+}
+Terraform would throw a syntax error because it expects only one string literal (the local name) after the resource type.
+
+How to Create Multiple Subnets (or any resource) in Terraform:
+If you need to create multiple instances of the same resource type, you use either:
+
+Multiple resource blocks (most straightforward for a few distinct resources):
+
+Terraform
+
+resource "aws_subnet" "public1" {
+  vpc_id     = aws_vpc.main.id
+  cidr_block = "10.0.1.0/24"
+  tags = {
+    Name = "public-subnet-1"
+  }
+}
+
+resource "aws_subnet" "public2" {
+  vpc_id     = aws_vpc.main.id
+  cidr_block = "10.0.2.0/24"
+  tags = {
+    Name = "public-subnet-2"
+  }
+}
+
+resource "aws_subnet" "public3" {
+  vpc_id     = aws_vpc.main.id
+  cidr_block = "10.0.3.0/24"
+  tags = {
+    Name = "public-subnet-3"
+  }
+}
+count meta-argument (for a known number of identical or very similar resources):
+
+Terraform
+
+resource "aws_subnet" "public" {
+  count = 3 # This will create 3 subnets
+
+  vpc_id     = aws_vpc.main.id
+  cidr_block = "10.0.${count.index + 1}.0/24" # Dynamically assign CIDR
+  tags = {
+    Name = "public-subnet-${count.index + 1}" # Dynamically assign name
+  }
+}
+With count, you still have a single local name ("public"), but Terraform creates multiple instances of that resource. You can then reference them using aws_subnet.public[0], aws_subnet.public[1], etc.
+
+for_each meta-argument (for resources created from a map or set, ideal when properties differ significantly or the number is dynamic):
+
+Terraform
+
+variable "public_subnets_config" {
+  type = map(object({
+    cidr_block = string
+    name_suffix = string
+  }))
+  default = {
+    "public1" = { cidr_block = "10.0.1.0/24", name_suffix = "1" },
+    "public2" = { cidr_block = "10.0.2.0/24", name_suffix = "2" },
+    "public3" = { cidr_block = "10.0.3.0/24", name_suffix = "3" }
+  }
+}
+
+resource "aws_subnet" "public" {
+  for_each = var.public_subnets_config # Iterate over the map keys (public1, public2, public3)
+
+  vpc_id     = aws_vpc.main.id
+  cidr_block = each.value.cidr_block # Get CIDR from the map value
+  tags = {
+    Name = "public-subnet-${each.value.name_suffix}" # Get suffix from the map value
+  }
+}
+With for_each, you again have a single local name ("public"), but Terraform creates multiple instances based on the keys of your map. You can then reference them using aws_subnet.public["public1"], aws_subnet.public["public2"], etc.
+
+So, while you can't list multiple local names directly in one resource line, Terraform provides powerful mechanisms (count and for_each) to define and manage multiple instances of a resource effectively.
