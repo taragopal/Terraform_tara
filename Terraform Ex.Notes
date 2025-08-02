@@ -17,7 +17,7 @@ Here is the order of priority:
 50 - Data type: MAP() 
   How to declare ?
   Ans - Key value pairs within curly braces: 
-  Eg: {"Team" = "Marketing"} 
+  Eg: {"Department" = "Marketing","Region" = "Switzerland", "Language" = "Engish"} 
 
 Terraform init 
 Terraform plans 
