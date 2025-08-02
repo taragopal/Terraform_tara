@@ -64,12 +64,23 @@ Issue:
 Use this under tags to change the name of the instances, users or tasks. 
 
 How? 
+Option1: 
 tags{
   Name = "Marketing_systems-$(count.index)"
 }
 
+Result = All instances will start with Marketing_systems-1 / 2 /3 
 
+Option2: 
+variable "dev_names"{
+type = list
+default = ["ajay" , "anu" , "soy"]
+}
 
+resource "aws_iam_user" "lb" {
+name = var.dev_names[count.index]
+count = 3
+}
 
 
 
