@@ -46,8 +46,17 @@ default = {
           }
 }
 
+Explain: var.list[1] will pick the 2nd item from the LIST, which is m1.medium in EU-East. 
 
+52 - THE COUNT META Argument
+============================
+**By default one resource block configures one real Infrastructure Block. 
+When there are 10s and 100s of resource block needs to be created with the same configuration, we could use COUNT() argument.
+In the resource block mention: Count = 2 
 
+Issue: 
+1. IAM user, the name would be the same, this would pose more work for the passsword admin, to fix the IDs. 
+2. Identical resource would be created with the same name. 
 
 
 
