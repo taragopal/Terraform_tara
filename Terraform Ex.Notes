@@ -55,11 +55,18 @@ When there are 10s and 100s of resource block needs to be created with the same 
 In the resource block mention: Count = 2 
 
 Issue: 
-1. IAM user, the name would be the same, this would pose more work for the passsword admin, to fix the IDs. 
+1. IAM user, the name would be the same, this would pose more work for the passsword admin, to fix the IDs. So this will create only 1 user, not more, due to uniqueness restruction. 
 2. Identical resource would be created with the same name. 
 
 
+53 - COUNT.INDEX() 
+===================
+Use this under tags to change the name of the instances, users or tasks. 
 
+How? 
+tags{
+  Name = "Marketing_systems-$(count.index)"
+}
 
 
 
