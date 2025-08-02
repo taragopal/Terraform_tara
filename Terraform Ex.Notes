@@ -23,3 +23,41 @@ Terraform init
 Terraform plans 
 Terraform apply -auto-approve
 Terraform destroy 
+
+51 - Fetching Data from Maps / Lists
+==========================================
+
+resource "aws_instance" "myVM" {
+ami = "aws-1234"
+instance_type = var.list[1]
+}
+
+variable "list"{
+type = "list" 
+default = ["d1.large", "m1.medium", "s1.small"]
+}
+
+variable "types" {
+type = map
+default = {
+ eu-central = "d1.large"
+ eu-east = "m1.medium"
+ eu-south = "s1.small" 
+          }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
