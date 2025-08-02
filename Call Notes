@@ -1,0 +1,11 @@
+
+42 - 46 : Terraform Variables 
+
+47 : Variable Definition Precedence : default vs terraform.tfvars vs ENV 
+Here is the order of priority: 
+  -- ENV
+  -- Terraform.tfvars
+  --terraform.tfvars.JSON
+  -- *.auto.tfvars / *.auto.tfvars.json 
+  -- Any -var / -var-file on the commands line 
+
