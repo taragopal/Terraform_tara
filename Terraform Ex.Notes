@@ -108,6 +108,11 @@ instance_type = var.environment == "development" && var.region == "us-east-1" ? 
 ami = "123-aws-ayz" 
 }
 
+55 - TERRAFORM FUNCTIONS
+===============================
+** Terraform do not support user definied functions. 
+
+file() - reads the contents of a file at a given PATH and returns them as a string. This function helps to reduce the size of terraform code by loading contents from external sources during terraform operations. 
 
 
 
