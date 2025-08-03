@@ -132,6 +132,40 @@ Example:
 ay
 Explain: looking for a key-value pair in the varibale map {a="ay", b="bee"}. When finds a match it returns the value ay. If nothing found it return the DEFAULT value.
 
+length()
+========
+> length([])
+0
+> length(["a", "b"])
+2
+> length({"a" = "b"})
+1
+> length("hello")
+5
+
+element()
+=========
+syntax: element(list, index)
+example: 
+> element(["a", "b", "c"], 1)
+"b"
+> element(["a", "b", "c"], -1) #last element of a list is accessed by -1 index number, -2 etc would be last -2 etc etc 
+"c"
+
+58 - LOCAL VALUES
+================== 
+local{
+common_tags = {
+    team = "it-team"
+        }
+}
+
+resouce "aws_security_group" "allow_tls" {
+    name = "firewall_xyz" 
+    tags =  local.common_tags
+}
+
+
 
 
 
