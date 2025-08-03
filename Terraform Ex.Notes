@@ -154,7 +154,8 @@ example:
 
 58 - LOCAL VALUES
 ================== 
-local{
+* Cant modify the local value from other souces, needs to touch the code. Its better to use variable as much as possible. locals() are good for repetable code and housekeeping. 
+locals {
 common_tags = {
     team = "it-team"
         }
@@ -165,8 +166,20 @@ resouce "aws_security_group" "allow_tls" {
     tags =  local.common_tags
 }
 
+59 - Data 🆘 SOURCE
+=====================
+This allows Terraform to fetch information defnined outside the Terraform 
 
+Data Source ----------> Resource Block 
 
+Usecases of Data Source: 
+  - 
+  - 
+  - 
+
+Syntax: 
+
+Example :
 
 
 
