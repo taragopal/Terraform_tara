@@ -89,7 +89,10 @@ count = 3
 Allows to choose between two values based on a condition. 
 Eg: If the Env=dev, choose instance=t2.small -- if Env=test, choose instance=m5.large
 
-Syntax: condition? true_val: false_val 
+Syntax: condition? true_val: false_val
+
+Can you NOT condition 
+
 
 
 
