@@ -114,7 +114,7 @@ ami = "123-aws-ayz"
 
 file() - reads the contents of a file at a given PATH and returns them as a string. This function helps to reduce the size of terraform code by loading contents from external sources during terraform operations. 
 
-
+policy = file("./ec2-policy.json") 
 
 
 
