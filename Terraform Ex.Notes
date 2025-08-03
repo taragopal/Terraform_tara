@@ -117,7 +117,20 @@ file() - reads the contents of a file at a given PATH and returns them as a stri
 policy = file("./ec2-policy.json") 
 
 
+56, 57 - Analyzing Terraform Code containing Functions
+=======================================================
+lookup()
+length()
+timestamp()
+fromdate()
+element()
 
+lookup()
+Syntax: lookup(map, key, default)
+Example: 
+> lookup({a="ay", b="bee"}, "a", "what?")
+ay
+Explain: looking for a key-value pair in the varibale map {a="ay", b="bee"}. When finds a match it returns the value ay. If nothing found it return the DEFAULT value.
 
 
 
