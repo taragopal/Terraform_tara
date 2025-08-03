@@ -92,7 +92,11 @@ Eg: If the Env=dev, choose instance=t2.small -- if Env=test, choose instance=m5.
 Syntax: condition? true_val: false_val
 
 Can you NOT condition 
-
+Example: 
+resource "aws_instance" "example"{
+instance_type = var.environment == "development" ? "t2.micro":"m5.large" 
+ami = "123-aws-ayz" 
+}
 
 
 
