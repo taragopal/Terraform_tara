@@ -88,13 +88,23 @@ count = 3
 ============================
 Allows to choose between two values based on a condition. 
 Eg: If the Env=dev, choose instance=t2.small -- if Env=test, choose instance=m5.large
+* Could club more than one conditions and use &&, !=, !, "", >, <, <=,>= and other operators 
+
 
 Syntax: condition? true_val: false_val
 
 Can you NOT condition 
 Example: 
+variable "environment" {
+  default = "production"
+}
+
+variable "region"{
+  default = "eu-central-1"
+}
+
 resource "aws_instance" "example"{
-instance_type = var.environment == "development" ? "t2.micro":"m5.large" 
+instance_type = var.environment == "development" && var.region == "us-east-1" ? "t2.micro":"m5.large" 
 ami = "123-aws-ayz" 
 }
 
