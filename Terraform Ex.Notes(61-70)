@@ -54,6 +54,46 @@ ERROR
 Where is it storing these logs ? 
 export TF_LOG_PATH=/temp/terraform-%date%.log
 
+When we use "SET" its session dependent, it would disappear in the next session. 
+
+66 - TERRAFORM Debugging Model : Types of errors cause
+------------------------------------------------------
+1. Language Errors: Syntax error in cfg
+2. State Error: locked statefile, out of sync etc
+3. CORE Error : Related with the bugs in Terraform -- keep an eye on the github repos on the open issues. label = bug  
+4. PROVIDER Error: Issue with the provider plugin, could even report the issue. terraform-provider-azure | terraform-provider-aws in GIT 
+
+67. Report bugs in the Terraform github repository - create an issue -> bug report -> details 
+
+68. Use terraform fmt command for the formatting the right indentation. 
+
+69. Load order and Semantics
+------------------------------
+provider.tf 
+variable.tf 
+semantics.tf 
+iam_users.tf 
+
+Its better to divide the production code with different blocks. And when we run terraform plan, it all comes together
+
+70. Terraform Dynamic Block
+-----------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
