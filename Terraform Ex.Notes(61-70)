@@ -2,4 +2,186 @@ TERRAFORM NOTES
 
 61. Data source - FORMAT
 -------------------------
+Using the data source block we can fetch a particular instance. Look for the details of this in the AWS Resource -> Documentation panel. 
+Data source uses tags, which are very important to maintain a large environment with 1000s of instances. 
+
+Ask @need to research on the usecases, apart from update, environment seggregation and network related changes, can there be any use of this on Application deployment ? 
+
+data "aws_instance" "foo" {
+instance_id = "i-instance-id" 
+}
+
+filter{
+name = "image-id"
+values = ["ami-xxxxxx"]
+}
+
+filter{
+name = "tag:name"
+values = ["instance-name-tag] 
+} 
+
+62. Usecase = Problem Definition :Fetch the latest OS image using Data Source
+------------------------------------------------------------------------------
+* Avoid hard coded static values in Terraform code. 
+Use terraform to query the latest OS image and using that to create an instance. 
+
+63. Usecase: Solution
+-----------------------
+could not find the os_release | ami_id | latest_patch in the Azure Resource block, not able to convert this for Azure. 
+
+64. Debugging in TERRAFORM 
+---------------------------
+
+40% of time will go into Debugging. Documentation / config issue. 
+-- Always maintain a detailed log. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
