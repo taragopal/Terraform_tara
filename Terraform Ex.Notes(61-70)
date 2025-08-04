@@ -35,6 +35,27 @@ could not find the os_release | ami_id | latest_patch in the Azure Resource bloc
 
 40% of time will go into Debugging. Documentation / config issue. 
 -- Always maintain a detailed log. 
+Enable TF_LOG in Terraform 
+
+Store the file in TF_LOG_PATH 
+
+Logs in the decreasing number of verbosity : 
+TRACE
+DEBUG
+INFO
+WARN
+ERROR 
+
+65 - TERRAFORM Debug setup 
+---------------------------
+> set TF_LOG = INFRO | TRACE  ( Windows) 
+> export TF_LOG = TRACE ( Linux) 
+
+Where is it storing these logs ? 
+export TF_LOG_PATH=/temp/terraform-%date%.log
+
+
+
 
 
 
