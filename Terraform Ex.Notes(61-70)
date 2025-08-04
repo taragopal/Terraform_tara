@@ -81,16 +81,19 @@ Its better to divide the production code with different blocks. And when we run 
 This allows to dynamically construct repeatable nested blocks which is supported inside resouce, data, provider and provisioner blocks. 
 
 dynamic "ingress" {
-for_each = var.ingress_ports
+for_each = var.ingress_ports /* ITERATIONS 
 content{
   from_port = 
   to_port = 
   protocol = 
-  cidr_blocks = ["0.0.0.0/0"]
+  cidr_blocks = ["0.0.0.0/0"]  
       }
 }
 
-
+variable sg_ports{
+type = list(numbers)
+default = [1000, 2000, 8080, 8081, 9001]   /*VALUE PASSED THROUGH THE EACH ITERATIONS
+}
 
 
 
