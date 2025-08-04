@@ -78,7 +78,17 @@ Its better to divide the production code with different blocks. And when we run 
 
 70. Terraform Dynamic Block
 -----------------------------
+This allows to dynamically construct repeatable nested blocks which is supported inside resouce, data, provider and provisioner blocks. 
 
+dynamic "ingress" {
+for_each = var.ingress_ports
+content{
+  from_port = 
+  to_port = 
+  protocol = 
+  cidr_blocks = ["0.0.0.0/0"]
+      }
+}
 
 
 
