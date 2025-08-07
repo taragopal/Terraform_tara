@@ -15,6 +15,7 @@ This will contain the following :
     - validating
     - initializing - plan - apply
     - Graphing ?
+
  
       
 4 - Provisioning with TERRAFORM
