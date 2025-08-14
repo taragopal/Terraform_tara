@@ -96,7 +96,7 @@ type = list(numbers)
 default = [1000, 2000, 8080, 8081, 9001]   /*VALUE PASSED THROUGH THE EACH ITERATIONS
 }
 
-
+71. 
 
 
 
