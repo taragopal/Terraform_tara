@@ -127,7 +127,9 @@ Command: terraform graph -type=plan | dot Tpng > graph.png
 -----------------------------------
 can save the plan as a different file at various stage. 
 
-terraform show -json infra.plan | jq is 
+Usecase: For any planned changes, the details of the old config files would be neccessary evident. Plan -out new.terraform is an important part of CHANGE MANAGEMENT
+
+terraform show -json infra.plan | jq
 
 
 
