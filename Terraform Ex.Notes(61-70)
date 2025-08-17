@@ -3,6 +3,7 @@ TERRAFORM NOTES for the following:
 61. Data source - FORMAT
 -------------------------
 
+
 Using the data source block we can fetch a particular instance. Look for the details of this in the AWS Resource -> Documentation panel. 
 Data source uses tags, which are very important to maintain a large environment with 1000s of instances. 
 
