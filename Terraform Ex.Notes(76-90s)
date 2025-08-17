@@ -1,0 +1,10 @@
+75. Terraform Output 
+-------------------
+
+terraform has the Output vaiable {
+
+}
+
+* You can run the terraform plan again to see the old output 
+* can inspect the tf.state file and see the output blocks 
+Run: terraform output <output-valuable> 
