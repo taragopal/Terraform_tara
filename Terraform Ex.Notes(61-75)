@@ -115,11 +115,19 @@ Allows us to get a list of all attributes
 
 74: Terraform graph
 ---------------------
+shows the visual representation of the resource dependencies in a Terraform configuration. Helps to plan, debug and manage complex relationships between various parts of a complex environment. 
+
+First the code is generated and then we can put the code on graphviz or other websites and the dependency diagrams would be generated. 
+
+Command: terraform graph -type=plan | dot Tpng > graph.png 
+                                     | dot Tsvg > graph.svg 
 
 
+75. Save terraform plan to a file
+-----------------------------------
+can save the plan as a different file at various stage. 
 
-
-
+terraform show -json infra.plan | jq is 
 
 
 
