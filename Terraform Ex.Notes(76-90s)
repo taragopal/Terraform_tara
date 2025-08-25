@@ -12,5 +12,5 @@ Run: terraform output <output-valuable>
 This would pull updates from the output which could be an input for a script for a new file.
 
 76. Terraform 
------------------------
+--------------
 
