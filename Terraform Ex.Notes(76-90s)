@@ -1,4 +1,4 @@
-75. Terraform Output 
+76. Terraform Output 
 -------------------
 
 terraform has the Output vaiable {
@@ -11,6 +11,9 @@ Run: terraform output <output-valuable>
 
 This would pull updates from the output which could be an input for a script for a new file.
 
-76. Terraform 
---------------
+77. Specific versions to run the code 
+----------------------------------------
+
+
+
 
