@@ -18,7 +18,14 @@ Declates the latest versions of the TF plugins.
 
 terraform{
 required_version = "1.08" 
+
+required_providers {
+  aws = {
+      version = 5.7
+      source = "harshicorp/aws"
+  }
+}
 }
 
-The terraform plan would fail, as its expecting the exact version of the terraform. 
+The terraform plan would fail, as its expecting the exact version of the terraform. The required_providers block can be used to declare the provider details. 
 
