@@ -13,7 +13,12 @@ This would pull updates from the output which could be an input for a script for
 
 77. Specific versions to run the code 
 ----------------------------------------
+Terraform blocks are used for code blocks that runs on specific versions. 
+Declates the latest versions of the TF plugins. 
 
+terraform{
+required_version = "1.08" 
+}
 
-
+The terraform plan would fail, as its expecting the exact version of the terraform. 
 
