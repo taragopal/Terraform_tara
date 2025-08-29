@@ -18,6 +18,7 @@ Can be added to terraform{}
 -- Experimental features
 -- Required Provider and versions 
 -- Required Terraform version 
+-- Pass meta data 
 
 
 Terraform blocks are used for code blocks that runs on specific versions. 
