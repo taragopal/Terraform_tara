@@ -63,6 +63,9 @@ zipmap (keylist, valuelist)
 "b" =2,
 }
 
+Note: This can be used to assign values to IAM users, polcies, ports, IPs or serveral other assignment types of operations. 
+
+81. 
 
 
 
