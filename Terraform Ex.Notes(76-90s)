@@ -37,9 +37,31 @@ details and the versions.
 78. Resource TARGETTING in Terraform
 -----------------------------------------
 Allow the changes to a specific subset of resources rather than applying changes to the entire infrastructure. 
-Use the -target 🚩  with terraform apply / plan command. 
+Use the -target 🚩  "<resource-name>  with terraform apply / plan command. 
+
+terraform plan -target <>
+terraform destroy -target <>
+terraform init -target <>
+
+79. DEALING with large infrastructure, when the state file is in sync
+------------------------------------------------------------------------
+API throttling: When we exceed the quota of number of allowed API calls. 
+Single terraform plan create an enormous amount of API calls. It could impact the performance of the production instances. 
+
+--refresh the resources while running plan 
+--convert a big project to a smaller project. ec2, iam, vpc, subnet, storage, load balancers, nfs, port, policies, vnet, security group, 
+-- Disable the refesh flag 🚩: refresh = false 
 
 
+80. ZIPMAP function
+--------------------
+zipmap (keylist, valuelist) 
+
+>zipmap (["a", "b"], [1, 2]) 
+{
+"a" =1,
+"b" =2,
+}
 
 
 
