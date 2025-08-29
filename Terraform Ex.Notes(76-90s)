@@ -27,5 +27,9 @@ required_providers {
 }
 }
 
-The terraform plan would fail, as its expecting the exact version of the terraform. The required_providers block can be used to declare the provider details. 
+When we run "terraform plan" would fail, as its expecting the exact version of the terraform. 
+Adding required_providers block can be used to declare the provider details and the versions. 
+
+78. 
+
 
