@@ -13,6 +13,13 @@ This would pull updates from the output which could be an input for a script for
 
 77. Specific versions to run the code 
 ----------------------------------------
+Can be added to terraform{} 
+-- Backend Configuration
+-- Experimental features
+-- Required Provider and versions 
+-- Required Terraform version 
+
+
 Terraform blocks are used for code blocks that runs on specific versions. 
 Declates the latest versions of the TF plugins. 
 
@@ -29,6 +36,7 @@ required_providers {
 
 When we run "terraform plan" would fail, as its expecting the exact version of the terraform. 
 Adding required_providers block can be used to declare the provider details and the versions. 
+Other settings in Terraform block: 
 
 78. 
 
