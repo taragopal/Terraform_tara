@@ -1,9 +1,6 @@
 76. Terraform Output 
 -------------------
-
-terraform has the Output vaiable {
-
-}
+terraform has the Output vaiable {}
 
 * You can run the terraform plan again to see the old output 
 * can inspect the tf.state file and see the output blocks 
@@ -20,7 +17,6 @@ Can be added to terraform{}
 -- Required Terraform version 
 -- Pass meta data 
 
-
 Terraform blocks are used for code blocks that runs on specific versions. 
 Declates the latest versions of the TF plugins. 
 
@@ -35,10 +31,73 @@ required_providers {
 }
 }
 
-When we run "terraform plan" would fail, as its expecting the exact version of the terraform. 
-Adding required_providers block can be used to declare the provider details and the versions. 
-Other settings in Terraform block: 
+When we run "terraform plan" would fail, as its expecting the exact version of the terraform. Adding required_providers block can be used to declare the provider 
+details and the versions. 
 
-78. 
+78. Resource TARGETTING in Terraform
+-----------------------------------------
+Allow the changes to a specific subset of resources rather than applying changes to the entire infrastructure. 
+Use the -target 🚩  with terraform apply / plan command. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
