@@ -53,8 +53,7 @@ Single terraform plan create an enormous amount of API calls. It could impact th
 -- Disable the refesh flag 🚩: refresh = false 
 
 
-80. ZIPMAP function
---------------------
+80. ZIPMAP function: 
 zipmap (keylist, valuelist) 
 
 >zipmap (["a", "b"], [1, 2]) 
@@ -65,14 +64,13 @@ zipmap (keylist, valuelist)
 
 Note: This can be used to assign values to IAM users, polcies, ports, IPs or serveral other assignment types of operations. 
 
-81. Adding comments: 
-----------------------
+81. Adding comments
+:
 # Single line comments 
 // alternative to #
 /* muti line comments */
 
-82. Meta arguments and resource behaviour 
-------------------------------------------
+82. Meta arguments and resource behaviour : 
 Allows to customize the resouces, which comes inside the resource blocks. 
 
 example: 
@@ -96,6 +94,19 @@ provider =
 85 - prevent_destroy 
   : safety against accidental deletes. This does not prevent the remote objects from being destroyed if the resource block is entirely removed from the config file. 
 86 - Ignore_changes
+  : terraform apply auto-approve 
+resource "aws_instance" "example" {
+  # ...
+
+  lifecycle {
+    ignore_changes = [
+      # Ignore changes to tags, e.g. because a management agent
+      # updates these based on some ruleset managed elsewhere.
+      tags, <details>
+    ]
+  }
+}
+
 
 
 
