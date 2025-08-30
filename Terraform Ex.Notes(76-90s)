@@ -145,7 +145,7 @@ resource "aws_instance" "server" {
 }
 
 87 - depends_on Meta-Argument
-:
+------------------------------
 Use the depends_on meta-argument to handle hidden resource or module dependencies that Terraform cannot automatically infer.
 EXAMPLE CODE BLOCK: 
 
@@ -182,13 +182,14 @@ resource "aws_instance" "example" {
 
   /* However, if software running in this EC2 instance needs access to the S3 API in order to boot properly, there is also a "hidden" dependency on the
 aws_iam_role_policy that Terraform cannot automatically infer, so it must be declared explicitly */
-  depends_on = [
-    aws_iam_role_policy.example
-  ]
+  depends_on = [ aws_iam_role_policy.example ]
 }
 
 
-
+90. SET and LIST data type
+-----------------------------
+Same as Python with [] - not ordered version 
+list = ["a","b","c"] - order is important
 
 
 
