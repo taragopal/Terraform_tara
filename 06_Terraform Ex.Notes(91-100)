@@ -1,5 +1,5 @@
 91. for_each in Terrafrom 
---------------------------
+-----✌️✌️✌️✌️🖖🫳🫴👌🤘🤟------
 
 
 
@@ -8,7 +8,7 @@
 
 
 92. Data type object
---------------------------
+-----✌️✌️✌️✌️🖖🫳🫴👌🤘🤟------
 map is a collection of key-value pairs where the keys are a strings and values are of same data type(?)
 variable "my_map"{
   type = map (number) /* when the vailable type is defined it wont be able to accept a different value 
@@ -29,27 +29,27 @@ Syntax Pointers:
 
 TERRAFORM PROVISIONERS
 93 - 94. Overview and type of provisioners
--------------------------------------------
-
-
-
-
-
-
-
-
+-----✌️✌️✌️✌️🖖🫳🫴👌🤘🤟------
+#not part of the exam in Terraform 
+once the VM is launched, install additonal packages and softwares. 
+=> provisioner.tf based on each providers, gcp, azure, aws etc. 
+Allows to run certian sets of scripts / commands at the local or remote machines. local_exec, remote_exec, file_exec. Harshicorp later removed many other provisioners like salt, jenkins etc etc. 
+server_ip.txt ---> install the IP in a local file. 
+For the remote_exec, the .pem file needs to be present for the authentication to work. 
 95. Format for defining provisioners
---------------------------
-
-
-
-
-
+-----✌️✌️✌️✌️🖖🫳🫴👌🤘🤟------
+a. provsioner block needs to be part of the resource block. 
+b. Mention the type of provisioner: local | remote etc 
+c. LOCAL: declaire the provisioner block inside the resource block with the local commands to be run on the resource
+d. REMOTE: Under the resource block add 
+    1st block: Declaire a connection block { type = ssh, user = , private_key = , host =  self.public_ip }
+    2nd block: provisioner "remote_exec" { inline = [ command1, command2]} 
+e. There can be muliple provisioner as part of a single resouce block. Not sure if we can mix local and remote provisioners in a single resource block. 
 
 
 
 96. local_exec Provisioner
---------------------------
+-----✌️✌️✌️✌️🖖🫳🫴👌🤘🤟------
 
 
 
@@ -59,7 +59,7 @@ TERRAFORM PROVISIONERS
 
 
 97. remote_exec Provisioner
---------------------------
+-----✌️✌️✌️✌️🖖🫳🫴👌🤘🤟------
 
 
 
@@ -68,18 +68,37 @@ TERRAFORM PROVISIONERS
 
 
 
-99. creation_time + destroy_time Provisioners
---------------------------
+98 - 99. Points to note + creation_time + destroy_time Provisioners
+-----✌️✌️✌️✌️🖖🫳🫴👌🤘🤟------
+resource "aws_instance" "example" {
+  ami           = "ami-0c55b159cbfafe1f0" 
+  instance_type = "t2.micro"
 
+  provisioner "local-exec" {
+    command = "echo 'This command runs on the local machine.'"
+  }
 
+  provisioner "remote-exec" {
+    inline = [
+      "echo 'This command runs on the remote server.'",
+      "apt-get update"
+    ]
 
+    connection {
+      type     = "ssh"
+      host     = self.public_ip
+      user     = "ubuntu"
+      private_key = file("~/.ssh/id_rsa")
+    }
+  }
+}
 
 
 
 
 
 100. Failure Behaviours for Provisioners
------------------------------------------
+-----✌️✌️✌️✌️🖖🫳🫴👌🤘🤟------
 
 
 
