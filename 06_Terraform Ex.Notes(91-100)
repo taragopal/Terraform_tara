@@ -33,7 +33,8 @@ TERRAFORM PROVISIONERS
 #not part of the exam in Terraform 
 once the VM is launched, install additonal packages and softwares. 
 => provisioner.tf based on each providers, gcp, azure, aws etc. 
-Allows to run certian sets of scripts / commands at the local or remote machines. local_exec, remote_exec, file_exec. Harshicorp later removed many other provisioners like salt, jenkins etc etc. 
+Allows to run certian sets of scripts / commands at the local or remote machines. local_exec, remote_exec, file_exec. Harshicorp later removed many other 
+provisioners like salt, jenkins etc etc. 
 server_ip.txt ---> install the IP in a local file. 
 For the remote_exec, the .pem file needs to be present for the authentication to work. 
 95. Format for defining provisioners
@@ -45,8 +46,9 @@ d. REMOTE: Under the resource block add
     1st block: Declaire a connection block { type = ssh, user = , private_key = , host =  self.public_ip }
     2nd block: provisioner "remote_exec" { inline = [ command1, command2]} 
 e. There can be muliple provisioner as part of a single resouce block. Not sure if we can mix local and remote provisioners in a single resource block. 
-
-
+🎈🎇 When to use local provisioner? 
+Use local exec for commands that need to run locally, such as notifications or triggering other actions, while remote exec is used to manage the instance
+after it's up and running.
 
 96. local_exec Provisioner
 -----✌️✌️✌️✌️🖖🫳🫴👌🤘🤟------
