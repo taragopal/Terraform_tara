@@ -9,12 +9,23 @@
 
 92. Data type object
 --------------------------
+map is a collection of key-value pairs where the keys are a strings and values are of same data type(?)
+variable "my_map"{
+  type = map (number) /* when the vailable type is defined it wont be able to accept a different value 
+}
 
+variabe "my-object"{
+  type = object({Name = string, "userID" = number})
+}
+output "varibale_value"{
+  value = var.my-map
+}
+Syntax Pointers: 
+  a. schema for object type is {<KEY>=<TYPE>,<KEY>=<TYPE>}
+  b. object(...) is a collection fo named attributes taht have their own data type 
+  c. Extra attributes are discarded during the type conversion.. 
 
-
-
-
-
+92: Execise: terraform fmt -recursive
 
 TERRAFORM PROVISIONERS
 93 - 94. Overview and type of provisioners
