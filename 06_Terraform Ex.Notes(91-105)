@@ -18,7 +18,84 @@
 
 TERRAFORM PROVISIONERS
 93 - 94. Overview and type of provisioners
------------------------------------------------
+-------------------------------------------
+
+
+
+
+
+
+
+
+95. Format for defining provisioners
+--------------------------
+
+
+
+
+
+
+
+
+96. local_exec Provisioner
+--------------------------
+
+
+
+
+
+
+
+
+97. remote_exec Provisioner
+--------------------------
+
+
+
+
+
+
+
+
+99. creation_time + destroy_time Provisioners
+--------------------------
+
+
+
+
+
+
+
+
+100. Failure Behaviours for Provisioners
+-----------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
