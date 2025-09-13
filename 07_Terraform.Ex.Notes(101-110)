@@ -1,5 +1,55 @@
 ##Importance
 
+101. Basic of Terraform Modules 
+
+
+102. Creating EC2 instances using modules 
+
+
+103. Point to Note:  Referencing Modules 
+
+
+104. Chossing the right Terraform module 
+
+
+105. Creating the base structure for the CUSTOM module
+
+
+106. Creating custom module for EC2
+
+
+107. Calling a Module 
+
+
+108. Local path to call a custom module 
+
+
+109. Improvement in Custom Module code 
+
+
+110. Variables in Terraform Module
+
+
+111. Converting Hardcoded Values to Variables 
+
+
+112. Improve Provider Configuration in Custom Module 
+
+
+113. Module Outputs 
+
+
+114. Root module vs Child module 
+
+
+115. Standard Module Structure 
+
+
+116. Multiple provider Configurations on Modules 
+
+
+117. 
+
 
 
 
