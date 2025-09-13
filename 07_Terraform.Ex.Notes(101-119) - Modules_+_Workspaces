@@ -1,24 +1,73 @@
-##Importance
+## Modules and Workspaces
 
 101. Basic of Terraform Modules 
+-----✌️✌️✌️✌️🖖🫳🫴👌🤘🤟------
+
+
+
+
+
+
 
 
 102. Creating EC2 instances using modules 
+-----✌️✌️✌️✌️🖖🫳🫴👌🤘🤟------
+
+
+
+
+
+
 
 
 103. Point to Note:  Referencing Modules 
+-----✌️✌️✌️✌️🖖🫳🫴👌🤘🤟------
+
+
+
+
+
+
 
 
 104. Chossing the right Terraform module 
+-----✌️✌️✌️✌️🖖🫳🫴👌🤘🤟------
+
+
+
+
+
+
 
 
 105. Creating the base structure for the CUSTOM module
+-----✌️✌️✌️✌️🖖🫳🫴👌🤘🤟------
+
+
+
+
+
+
 
 
 106. Creating custom module for EC2
+-----✌️✌️✌️✌️🖖🫳🫴👌🤘🤟------
+
+
+
+
+
+
 
 
 107. Calling a Module 
+-----✌️✌️✌️✌️🖖🫳🫴👌🤘🤟------
+
+
+
+
+
+
 
 
 108. Local path to call a custom module 
