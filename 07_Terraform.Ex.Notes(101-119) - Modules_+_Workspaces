@@ -2,12 +2,9 @@
 
 101. Basic of Terraform Modules 
 -----✌️✌️✌️✌️🖖🫳🫴👌🤘🤟------
-
-
-
-
-
-
+DRY principle = Do not repeat yourself 
+With Terraform modules, multiple team can create standardized modules for other teams to reuse. This helps the team for not having to write the code from the scratch. 
+Its a very popular way to consume Terraform, which is available on the Terraform official site. 
 
 
 102. Creating EC2 instances using modules 
