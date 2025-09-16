@@ -102,7 +102,11 @@ resource "aws_instance" "example" {
 100. Failure Behaviours for Provisioners
 -----✌️✌️✌️✌️🖖🫳🫴👌🤘🤟------
 
+Terraform apply fails, if provisioner fails. 
 
+Use on_failure settings, put a default value: 
+continue = 
+fail = 
 
 
 
