@@ -107,7 +107,7 @@ Terraform apply fails, if provisioner fails.
 Use on_failure settings, put a default value: 
 continue = 
 fail = 
-
+🔜terraform apply auto-approve
 
 
 
