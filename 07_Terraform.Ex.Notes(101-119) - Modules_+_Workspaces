@@ -10,12 +10,13 @@ Its a very popular way to consume Terraform, which is available on the Terraform
 102. Creating EC2 instances using modules 
 -----✌️✌️✌️✌️🖖🫳🫴👌🤘🤟------
 
-
-
-
-
-
-
+Go to the official site, and read the Provisions instructions. Copy the code and create a new file. 
+Once the terraform init command is created, the module will be downloaded. 
+Sample code snippet from ec2-instance: ec2-module.tf 
+module "ec2-instance"  {
+source = "terraform-ec2-module/ec2-instance/aws"
+version = "5.6.1.7"
+  }
 
 103. Point to Note:  Referencing Modules 
 -----✌️✌️✌️✌️🖖🫳🫴👌🤘🤟------
