@@ -14,7 +14,6 @@ variable "my_map"{
   type = map (number) /* when the vailable type is defined it wont be able to accept a different value 
 }
 
-
 variabe "my-object"{
   type = object({Name = string, "userID" = number})
 }
