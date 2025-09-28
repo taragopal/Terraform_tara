@@ -14,6 +14,7 @@ variable "my_map"{
   type = map (number) /* when the vailable type is defined it wont be able to accept a different value 
 }
 
+
 variabe "my-object"{
   type = object({Name = string, "userID" = number})
 }
@@ -28,6 +29,7 @@ Syntax Pointers:
 92: Execise: terraform fmt -recursive
 
 TERRAFORM PROVISIONERS
+
 93 - 94. Overview and type of provisioners
 -----✌️✌️✌️✌️🖖🫳🫴👌🤘🤟------
 #not part of the exam in Terraform 
@@ -37,6 +39,7 @@ Allows to run certian sets of scripts / commands at the local or remote machines
 provisioners like salt, jenkins etc etc. 
 server_ip.txt ---> install the IP in a local file. 
 For the remote_exec, the .pem file needs to be present for the authentication to work. 
+
 95. Format for defining provisioners
 -----✌️✌️✌️✌️🖖🫳🫴👌🤘🤟------
 a. provsioner block needs to be part of the resource block. 
