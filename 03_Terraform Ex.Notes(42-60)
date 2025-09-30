@@ -65,7 +65,9 @@ Use this under tags to change the name of the instances, users or tasks.
 This function helps to recduce the number of resource blocks. 
 The name generation can be added with STRING MANUPULATION. Including a %rand%
 
+
 How? 
+
 Option1: 
 tags{
   Name = "Marketing_systems-$(count.index)"
