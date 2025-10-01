@@ -32,6 +32,7 @@ Use terraform to query the latest OS image and using that to create an instance.
 -----------------------
 could not find the os_release | ami_id | latest_patch in the Azure Resource block, not able to convert this for Azure. 
 
+
 64. Debugging in TERRAFORM 
 ---------------------------
 
