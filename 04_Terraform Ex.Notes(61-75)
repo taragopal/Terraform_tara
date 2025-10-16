@@ -7,6 +7,7 @@ TERRAFORM NOTES for the following:
 Using the data source block we can fetch a particular instance. Look for the details of this in the AWS Resource -> Documentation panel. 
 Data source uses tags, which are very important to maintain a large environment with 1000s of instances. 
 
+
 Ask @need to research on the usecases, apart from update, environment seggregation and network related changes, can there be any use of this on Application deployment ? 
 
 data "aws_instance" "foo" {
